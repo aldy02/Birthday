@@ -10,3 +10,74 @@
   background-size: 40px 40px;
 }
 
+/* Keyframes for sliding up */
+@keyframes slide-up {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10px); /* Adjust the distance as needed */
+    opacity: 1;
+  }
+}
+
+/* Class to trigger the slide-up animation */
+.slide-up {
+  animation: slide-up 1.5s ease-out forwards; /* Adjust duration and easing as needed */
+}
+
+
+
+/* Keyframes for sliding down */
+@keyframes slide-down {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Class to trigger the slide-down animation */
+.slide-down {
+  animation: slide-down 1.5s ease-out forwards; /* Adjust duration and easing as needed */
+}
+
+
+/* Keyframes for sliding left */
+@keyframes slide-left {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Class to trigger the slide-left animation */
+.slide-left {
+  animation: slide-left 1.5s ease-out forwards; /* Adjust duration and easing as needed */
+}
+
+
+/* Keyframes for sliding down (for buttons) */
+@keyframes slide-down-buttons {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Class to trigger the slide-down animation for buttons */
+.slide-down-buttons {
+  animation: slide-down-buttons 1.5s ease-out forwards; /* Adjust duration and easing as needed */
+}
