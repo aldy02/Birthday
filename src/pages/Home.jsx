@@ -19,7 +19,7 @@ const Home = () => {
         />
       </div>
 
-      <p className='mx-20 mt-6 text-justify font-caveat text-md font-bold text-[#5B6E51]'>
+      <p className='mx-10 mt-6 text-justify font-caveat text-md font-bold text-[#5B6E51]'>
         Happy Birthday! | ¡Feliz cumpleaños! | Joyeux anniversaire! | Herzlichen Glückwunsch zum Geburtstag! | Buon compleanno! | Feliz aniversário! | С днём рождения! | お誕生日おめでとうございます! | 생일 축하합니다! | عيد ميلاد سعيد! | 生日快乐!  | สุขสันต์วันเกิด! | Честит рожден ден! | Gefeliciteerd met je verjaardag! | Grattis på födelsedagen! | Gratulerer med dagen! | Hyvää syntymäpäivää! | Doğum günün kutlu olsun! | Felicitats! | Chúc mừng sinh nhật! | Su gimtadieniu! | Maligayang kaarawan! | Selamat Ulang Tahun!
       </p>
 
