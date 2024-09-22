@@ -1,6 +1,6 @@
 import './index.css';
 import Home from './pages/Home';
-import Letter from './pages/letter';
+import Letter from './pages/Letter';
 import Login from './pages/Login';
 import { Routes, Route } from 'react-router-dom'
 
