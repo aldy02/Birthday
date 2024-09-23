@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
     audioRef.current.loop = true; // Buat musik looping
-    audioRef.current.play().catch(err => console.log("Audio play failed:", err));
 
     // Cleanup untuk menghentikan musik jika diperlukan
     return () => {
@@ -20,6 +19,10 @@ function App() {
       audioRef.current.currentTime = 0;
     };
   }, []);
+
+  const playAudio = () => {
+    audioRef.current.play().catch(err => console.log("Audio play failed:", err));
+  };
 
   const stopAudio = () => {
     audioRef.current.pause();
@@ -30,7 +33,7 @@ function App() {
     <ChakraProvider>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login playAudio={playAudio} />} />
           <Route path="/home" element={<Home />} />
           <Route path="/letter" element={<Letter />} />
           <Route path="/video" element={<Video stopAudio={stopAudio} />} />
