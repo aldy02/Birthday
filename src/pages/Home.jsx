@@ -20,14 +20,14 @@ const Home = () => {
   };
 
   return (
-    <div className='box-grid flex flex-col items-center justify-center h-screen'>
+    <div className='box-grid flex flex-col items-center justify-center'>
       {isLoading && (
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-center h-screen">
           <Spinner size="xl" color="teal.500" />
         </div>
       )}
 
-      <div className='mt-28'> {/* Adjusted top margin for the image */}
+      <div className='mt-14'> {/* Adjusted top margin for the image */}
         <img
           src={mainPhoto}
           alt="Main"
@@ -44,7 +44,7 @@ const Home = () => {
           </p>
 
           <button 
-            className="bg-[#A3AE85] mt-8 mb-20 text-white font-semibold py-2 px-4 w-80 rounded-md hover:bg-[#8a956c] slide-up" // Adjusted margins for better spacing
+            className="bg-[#A3AE85] mt-8 mb-12 text-white font-semibold py-2 px-4 w-80 rounded-md hover:bg-[#8a956c] slide-up" // Adjusted margins for better spacing
             onClick={handleButtonClick}
           >
             Letter For U!
