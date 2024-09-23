@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import profileImage from '../assets/pp.jpg'; // Gambar profile
 import pitaImage from '../assets/pita.png'; // Gambar pita
-import music from '../assets/Lagu.mp3'; // Import audio
 import '../index.css';
 
 const Login = () => {
@@ -11,15 +10,6 @@ const Login = () => {
   const [isProfileClicked, setIsProfileClicked] = useState(false);
   const placeholderText = "Insert your tanggal & bulan!";
   const navigate = useNavigate();
-  const audioRef = useRef(new Audio(music)); // Menggunakan useRef untuk menyimpan audio
-
-  useEffect(() => {
-    // Cleanup audio saat komponen unmount
-    return () => {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    };
-  }, []);
 
   const handleButtonClick = (value) => {
     if (input.length < 4) {
@@ -42,9 +32,6 @@ const Login = () => {
 
   const handleProfileClick = () => {
     setIsProfileClicked(true);
-
-    // Mulai audio setelah pengguna mengklik gambar profil
-    audioRef.current.play().catch(err => console.log("Audio play failed:", err));
   };
 
   return (
