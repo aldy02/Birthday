@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../index.css';
-import profileImage from '../assets/pp.jpg'; // Profile image
-import pitaImage from '../assets/pita.png'; // Pita image
-import music from '../assets/Lagu.mp3'; // Import your music file
 import { useNavigate } from 'react-router-dom';
+import profileImage from '../assets/pp.jpg'; // Gambar profile
+import pitaImage from '../assets/pita.png'; // Gambar pita
+import music from '../assets/Lagu.mp3'; // Import audio
+import '../index.css';
 
 const Login = () => {
   const [input, setInput] = useState('');
@@ -14,13 +14,10 @@ const Login = () => {
   const audioRef = useRef(new Audio(music)); // Menggunakan useRef untuk menyimpan audio
 
   useEffect(() => {
-    audioRef.current.loop = true; // Set to true if you want the music to loop
-    audioRef.current.play().catch(err => console.log("Audio play failed:", err));
-    
-    // Cleanup function to stop audio when component unmounts
+    // Cleanup audio saat komponen unmount
     return () => {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0; // Reset the audio to start
+      audioRef.current.currentTime = 0;
     };
   }, []);
 
@@ -30,12 +27,12 @@ const Login = () => {
       setInput(newInput);
 
       if (newInput.length === 4) {
-        if (newInput !== '2409') {
+        if (newInput !== '2409') { // Password validation
           setError('Masa lupa tanggal & bulan sendiri 😏');
           setInput('');
         } else {
           setError('');
-          navigate('/home');
+          navigate('/home'); // Pindah ke halaman home
         }
       } else {
         setError('');
@@ -45,10 +42,9 @@ const Login = () => {
 
   const handleProfileClick = () => {
     setIsProfileClicked(true);
-    // Coba memutar audio setelah beberapa detik
-    setTimeout(() => {
-      audioRef.current.play().catch(err => console.log("Audio play failed:", err));
-    }, 100); // Memulai audio setelah delay singkat
+
+    // Mulai audio setelah pengguna mengklik gambar profil
+    audioRef.current.play().catch(err => console.log("Audio play failed:", err));
   };
 
   return (
@@ -65,7 +61,7 @@ const Login = () => {
 
       {isProfileClicked && (
         <>
-          <div className={`mt-10 w-80 border-2 border-black py-2 px-4 bg-gray-50 text-2xl font-semibold flex items-center justify-center ${isProfileClicked ? 'slide-left' : ''}`}>
+          <div className={`mt-10 w-80 border-2 border-black py-2 px-4 bg-gray-50 text-2xl font-semibold flex items-center justify-center slide-left`}>
             <h2 className={`text-xl ${input ? 'text-[#353535]' : 'text-[#cac8c8] text-md'}`}>
               {input || placeholderText}
             </h2>
@@ -73,7 +69,7 @@ const Login = () => {
 
           {error && <p className="text-red-500 text-lg mt-8 slide-down">{error}</p>}
 
-          <div className={`grid grid-cols-3 mt-12 gap-10 pb-16 ${isProfileClicked ? 'slide-down-buttons' : ''}`}>
+          <div className="grid grid-cols-3 mt-12 gap-10 pb-16 slide-down">
             {Array.from({ length: 9 }, (_, index) => (
               <button 
                 key={index} 
