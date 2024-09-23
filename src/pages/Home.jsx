@@ -27,7 +27,7 @@ const Home = () => {
         </div>
       )}
 
-      <div className='mt-14'> {/* Adjusted top margin for the image */}
+      <div className='mt-8'> {/* Adjusted top margin for the image */}
         <img
           src={mainPhoto}
           alt="Main"
