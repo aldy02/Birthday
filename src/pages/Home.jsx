@@ -10,8 +10,8 @@ const Home = () => {
 
   const handleImageLoad = () => {
     setTimeout(() => {
-      setIsLoading(false); // Set loading ke false setelah 2 detik
-      setShowImage(true); // Tampilkan gambar setelah 2 detik
+      setIsLoading(false); // Set loading ke false setelah 1 detik
+      setShowImage(true); // Tampilkan gambar setelah 1 detik
     }, 1000);
   };
 
@@ -21,15 +21,13 @@ const Home = () => {
 
   return (
     <div className='box-grid flex flex-col items-center justify-center h-screen'>
-      {/* Tampilkan spinner jika loading */}
       {isLoading && (
         <div className="flex items-center justify-center h-full">
           <Spinner size="xl" color="teal.500" />
         </div>
       )}
 
-      {/* Gambar dengan event onLoad */}
-      <div className='mt-8'>
+      <div className='mt-28'> {/* Adjusted top margin for the image */}
         <img
           src={mainPhoto}
           alt="Main"
@@ -46,7 +44,7 @@ const Home = () => {
           </p>
 
           <button 
-            className="bg-[#A3AE85] mt-10 mb-12 text-white font-semibold py-2 px-4 w-80 rounded-md hover:bg-[#8a956c] slide-up"
+            className="bg-[#A3AE85] mt-8 mb-20 text-white font-semibold py-2 px-4 w-80 rounded-md hover:bg-[#8a956c] slide-up" // Adjusted margins for better spacing
             onClick={handleButtonClick}
           >
             Letter For U!
