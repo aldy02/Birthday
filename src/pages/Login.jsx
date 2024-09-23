@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import profileImage from '../assets/pp.jpg'; // Gambar profile
-import pitaImage from '../assets/pita.png'; // Gambar pita
+import profileImage from '../assets/pp.jpg'; 
+import pitaImage from '../assets/pita.png'; 
 import '../index.css';
 
-const Login = () => {
+const Login = ({ playAudio }) => {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
   const [isProfileClicked, setIsProfileClicked] = useState(false);
@@ -17,12 +17,12 @@ const Login = () => {
       setInput(newInput);
 
       if (newInput.length === 4) {
-        if (newInput !== '2409') { // Password validation
+        if (newInput !== '2409') {
           setError('Masa lupa tanggal & bulan sendiri 😏');
           setInput('');
         } else {
           setError('');
-          navigate('/home'); // Pindah ke halaman home
+          navigate('/home'); 
         }
       } else {
         setError('');
@@ -32,6 +32,7 @@ const Login = () => {
 
   const handleProfileClick = () => {
     setIsProfileClicked(true);
+    playAudio(); // Memutar audio saat pengguna mengklik gambar profil
   };
 
   return (
