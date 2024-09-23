@@ -4,7 +4,8 @@ import Letter from './pages/Letter';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Video from './pages/Video';
-import music from './assets/Lagu.mp3'; 
+import music from './assets/Lagu.mp3';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
   const audioRef = useRef(new Audio(music)); // Simpan audio di luar komponen halaman
@@ -15,7 +16,7 @@ function App() {
     // Cleanup untuk menghentikan musik jika diperlukan
     return () => {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0; 
+      audioRef.current.currentTime = 0;
     };
   }, []);
 
@@ -24,14 +25,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Login playAudio={playAudio} />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/letter" element={<Letter />} />
-        <Route path="/video" element={<Video />} />
-      </Routes>
-    </div>
+    <ChakraProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login playAudio={playAudio} />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/letter" element={<Letter />} />
+          <Route path="/video" element={<Video />} />
+        </Routes>
+      </div>
+    </ChakraProvider>
   );
 }
 
